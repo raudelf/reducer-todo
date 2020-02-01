@@ -11,6 +11,16 @@ export const initialState = [
     }
     ]
 
-export const reducer = state => {
-    return state;
+export const reducer = (state, action) => {
+    switch (action.type) {
+        case 'ADD_TASK':
+            return [
+                ...state, {
+                item: action.payload,
+                completed: false,
+                id: new Date()}
+            ]
+        default:
+        return state;
+    }
 }
