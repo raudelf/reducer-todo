@@ -14,6 +14,10 @@ const Todos = () => {
         dispatch({ type: 'ADD_TASK', payload: newTask})
     }
 
+    const toggleComplete = e => {
+        dispatch({ type: 'TOGGLE_COMPLETE'})
+    }
+
     console.log('what', state);
     return (
         <div className='container'>
@@ -24,7 +28,7 @@ const Todos = () => {
             <div className='todoContainer'>
                 {state.map((value) => {
                     return (
-                        <div className='todo' key={value.id}>
+                        <div onClick={toggleComplete} className='todo' key={value.id}>
                             <h2>{value.item}</h2>
                         </div>
                     )
