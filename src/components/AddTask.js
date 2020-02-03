@@ -14,7 +14,7 @@ const AddTask = props => {
     return (
         <form className='addContainer'>
                 <input className='addInput' type='text' name='newTask' value={props.newTask} onChange={handleChanges}/>
-                <button onClick={submitTask}>Add</button>
+                <button className='btn add' onClick={submitTask}>Add</button>
         </form>
     )
 }

@@ -1,10 +1,7 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  width: 1000px;
+  margin: 0 auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,15 +10,11 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -35,4 +28,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Todos Stylinh */
+
+.container {
+  width: 100%;
+}
+
+.todoContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.todo {
+  width: 30%;
+  margin-bottom: 2%;
+  background-color: #12355B;
+  cursor: pointer;
+}
+
+.todo:hover {
+  background-color: #BFDCE7;
+}
+
+.complete {
+  text-decoration: line-through;
+  background-color: rgba(18, 53, 91, 0.555);
+}
+
+/* Form Styling */
+
+.addContainer {
+  height: 40px;
+  margin-bottom: 2%;
+}
+
+.addInput {
+  height: 100%;
+  width: 30%;
+}
+
+/* Button Styling */
+
+.btn {
+  height: 100%;
+  color: #FFFCF9;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.add {
+  background-color: #12355B;
+}
+
+.clear {
+  background-color: #FF6978;
+  height: 40px;
+}
+
+.btn:hover {
+  filter: invert(.2)
 }
