@@ -22,10 +22,8 @@ export const reducer = (state, action) => {
             ];
             
         case 'TOGGLE_COMPLETE':
-            return {
-                ...state,
-                completed: !state.completed
-            };
+            return state.map(e => e.id === action.id ? {
+                ...e, completed: !e.completed } : e);
         default:
         return state;
     }

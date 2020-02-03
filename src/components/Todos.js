@@ -15,7 +15,7 @@ const Todos = () => {
     }
 
     const toggleComplete = e => {
-        dispatch({ type: 'TOGGLE_COMPLETE'})
+        dispatch({ type: 'TOGGLE_COMPLETE', id: e})
     }
 
     console.log('what', state);
@@ -28,7 +28,7 @@ const Todos = () => {
             <div className='todoContainer'>
                 {state.map((value) => {
                     return (
-                        <div onClick={toggleComplete} className='todo' key={value.id}>
+                        <div onClick={() => toggleComplete(value.id)} className={`todo${value.completed ? " complete" : ""}`} key={value.id}>
                             <h2>{value.item}</h2>
                         </div>
                     )
