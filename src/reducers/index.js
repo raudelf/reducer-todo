@@ -22,8 +22,11 @@ export const reducer = (state, action) => {
             ];
             
         case 'TOGGLE_COMPLETE':
-            return state.map(e => e.id === action.id ? {
+            return state.map(e => e.id === action.payload ? {
                 ...e, completed: !e.completed } : e);
+        
+        case 'CLEAR' :
+            return state.filter(task => !task.completed);
         default:
         return state;
     }

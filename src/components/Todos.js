@@ -1,30 +1,22 @@
 import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from '../reducers';
 
+// Components
+import ClearBtn from '../components/ClearBtn';
+import AddTask from '../components/AddTask';
+
 const Todos = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [newTask, setNewTask] = useState('');
 
-    const handleChanges = e => {
-        setNewTask(e.target.value)
-    }
-
-    const submitTask = e => {
-        e.preventDefault();
-        dispatch({ type: 'ADD_TASK', payload: newTask})
-    }
-
     const toggleComplete = e => {
-        dispatch({ type: 'TOGGLE_COMPLETE', id: e})
+        dispatch({ type: 'TOGGLE_COMPLETE', payload: e})
     }
 
     console.log('what', state);
     return (
         <div className='container'>
-            <form className='addContainer'>
-                <input className='addInput' type='text' name='newTask' value={newTask} onChange={handleChanges}/>
-                <button onClick={submitTask}>Add</button>
-            </form>
+            <AddTask dispatch={dispatch} setNewTask={setNewTask} newTask={newTask}/>
             <div className='todoContainer'>
                 {state.map((value) => {
                     return (
@@ -34,6 +26,7 @@ const Todos = () => {
                     )
                 })}
             </div>
+            <ClearBtn dispatch={dispatch} />
         </div>
     )
 }
